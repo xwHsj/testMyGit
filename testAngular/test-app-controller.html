@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>angular</title>
+<style>
+.greenDiv{width: 200px;height:30px;background-color: green;}
+</style>
+</head>
+<body  ng-app="testScope">
+	<input type="text" ng-model="text">
+	
+ 	<h2>Hello {{text}}!</h2>
+ 	
+ 	<div ng-controller="ListController">
+	 	<p>ng-show true</p>
+	 	<div class="greenDiv" ng-show="true"></div>
+	 	<p>ng-show false</p>
+	 	<div class="greenDiv" ng-show="false"></div>
+	 	
+	 	<p>ng-hide true</p>
+	 	<div class="greenDiv" ng-hide="true"></div>
+	 	<p>ng-hide false</p>
+	 	<div class="greenDiv" ng-hide="false"></div>
+	 	
+	 	<p>ng-if true</p>
+	 	<div class="greenDiv" ng-if="true"></div>
+	 	<p>ng-if false</p>
+	 	<div class="greenDiv" ng-if="false"></div>
+	 	
+	 	<p>切换隐藏 ng-hide true</p>
+	 	<div class="greenDiv" ng-hide="istrue"></div>
+	 	<p>切换隐藏 ng-show false</p>
+	 	<div class="greenDiv" ng-show="istrue"></div>
+	 	
+	 	<input type="button" ng-click="toggle();" value="切换隐藏"/>	
+	 	
+		<ul>
+			<li>-----</li>
+			<li ng-repeat="list in lists">{{list}}</li>
+		</ul>
+	</div>
+	<img src="../mobilebone-master/test/complex/img/screenshot/1.jpg">
+	<ul ng-controller="arrayController">
+		<li>-----</li>
+		<li ng-repeat="list in lists">姓名{{list.name}};性别{{list.sex}};年龄{{list.age}}</li>
+	</ul>
+<!--<script src="../lib/angular.js" ></script>-->
+<script src="../lib/angular.min.js" ></script>
+<!--<script src="../lib/system.js" ></script>
+<script src="../lib/typescript.js" ></script>
+<script src="../lib/angular2.dev.js" ></script>-->
+
+<script>
+	var testScope = angular.module("testScope", []);
+	
+	testScope.controller('ListController', ["$scope", function($scope){
+		console.log("come in controller");
+		$scope.lists = ["小刀", "手刀", "鱼骨剑"];
+		$scope.istrue = true;
+		
+		$scope.toggle = function(){
+			$scope.istrue = !$scope.istrue; 
+		}
+	}]);
+	
+	testScope.controller('arrayController', ["$scope", function($scope){
+		console.log("come in controller");
+		$scope.lists = [
+			{"name":"何帅帅", "sex":"男", "age":18},
+			{"name":"何帅帅", "sex":"男", "age":11},
+		];
+	}]);
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片上传预览演示-柯乐义</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<a href="javascript:window.close();">1111111</a>
+<input type="text" id="qqqq" value="aaaa"/>
+
+<script src="jquery-1.11.3.js"></script>
+
+<script>
+//定义两个全局变量
+var 定时轮询运行函数;
+var 倒计时秒数 = 60;
+
+function  hq(){
+  if(倒计时秒数 == 60)
+  {
+	  $(".hqyzm").hide();
+	  定时轮询运行函数 = window.setInterval(计时器计算函数, 1000);
+	  $(".js").show();
+	  $(".second").html(倒计时秒数);
+  }
+}
+
+function 计时器计算函数(){
+  倒计时秒数--;
+  if(倒计时秒数 == 0)
+  {
+    window.clearInterval(定时轮询运行函数);
+	倒计时秒数 = 60;
+	$(".js").hide();
+	$(".hqyzm").show();
+	 
+  }
+  
+  $(".second").html(倒计时秒数);
+  console.log("倒计时秒数" +  倒计时秒数);
+}
+
+
+function a(b){
+	var jsonstr = [{"a":"1"}];
+	alert(jsonstr[0][b]); 
+	alert(jsonstr[0].b);
+	alert(jsonstr[0][a]);
+	alert(jsonstr[0].a);
+}
+//a("a");
+
+/*
+var data = [7,8,9];
+alert("0" in data);
+alert("1" in data);
+alert(1 in data);
+alert(3 in data);
+*/
+
+</script>
+</body>
+</html>

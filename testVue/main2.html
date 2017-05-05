@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>testvue</title>
+<style>
+.greenDiv{width: 200px;height:30px;background-color: green;}
+
+.noWrap > div{display: inline-block;}
+</style>
+<script>
+	var contextPath = "file:///C:/Users/Administrator/Desktop/tt";
+</script>
+</head>
+<body>
+	
+<div v-html="scriptHtml" id="test1">
+
+</div>
+
+<div id="test2">
+	<div v-bind:id="dynamicId | capitalize" >{{ ok ? 'YES' : 'NO' }}</div>
+</div>
+
+<input type="button" value="clickOfvhtmljs" onclick="clickOfvhtmljs();"/>
+<script src="../lib/vue.js"></script>
+<script>
+// 定义一个混合对象
+var myMixin = {
+  created: function () {
+    this.hello()
+  },
+  methods: {
+    hello: function () {
+      console.log('hello from mixin!')
+    }
+  }
+}
+// 定义一个使用混合对象的组件
+var Component = Vue.extend({
+  mixins: [myMixin]
+})
+var component = new Component() // -> "hello from mixin!"
+
+var test1 = new Vue({
+	el:"#test1",
+	data:{
+		rawHtml:"<p class='greenDiv'>666666666666666666666</p>",
+		scriptHtml:"<script>function clickOfvhtmljs(){alert('888');}<\/script>"  //js内容已加上，没有弹出alert原因暂时不知道
+	}
+});
+
+
+var test2 = new Vue({
+	el:"#test2",
+	data:{
+		dynamicId:"abcid",
+		ok:true,
+		firstName:"haha",
+		lastName:"hehe"
+		
+	},
+	filters: {
+	    capitalize: function (value) {
+	    	console.log(arguments.length);
+	      if (!value) return '';
+	      value = value.toString();
+	      return value.charAt(0).toUpperCase() + value.slice(1) + arguments[1];
+	    }
+	  },
+	  computed: {
+		  fullName: {
+		    // getter
+		    get: function () {
+		      return this.firstName + ' ' + this.lastName
+		    },
+		    // setter
+		    set: function (newValue) {
+		      var names = newValue.split(' ')
+		      this.firstName = names[0]
+		      this.lastName = names[names.length - 1]
+		    }
+		  }
+		}
+});
+test2.fullName == "3333 9999";
+console.log(test2.firstName);
+console.log(test2.lastName);
+
+function factorial(n){
+	console.log("--------new start--------");
+	for(var argument in arguments){
+		console.log("argument：" + argument);
+		console.log("arguments[argument]：" +　arguments[argument]);
+	}
+  if (n <= 0)
+  return 1;
+  else{
+    return n * arguments.callee(n - 1, '我很666666')
+   }
+}
+//console.log(factorial(3));
+</script>
+</body>
+</html>
+ 

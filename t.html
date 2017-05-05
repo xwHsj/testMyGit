@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片上传预览演示-柯乐义</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<a href="t1.html" target="_blank">blank</a>
+<a href="javascript:window.open('t1.html');">open</a>
+<span class="hqyzm" onclick="hq();">获取验证码</span>
+<span class="js"><i class="second"></i></span>
+<div style="position:relative;border:1px solid red;">
+	<div style="width:30px;height:30px;background-color:green;float:left;"></div>
+	
+	<div style="clear:both;"></div>
+</div>
+
+
+
+
+<script src="jquery-1.11.3.js"></script>
+
+<script>
+	a = [1, 2, 3, 4, 6, 5];
+	console.log("a.sort: " + a.sort());
+	console.log("a: " + a.reverse());
+	a.length = 3;
+	console.log("a.length = 3:" + a);
+	Object.defineProperty(a, length, {writable: false});
+	console.log("a.length = 1:" + a);
+	a.length = 1;
+	/*var a = {"people":{"name":"老骚货", "age":18}};
+	var b = inherit(a);
+	console.log(b);
+	
+	b.people.name = "bbb2b2b2bb2";
+	
+	console.log(a);
+	console.log(b);
+	console.log(Object.prototype);
+	
+	
+	function inherit(proto) {
+	//proto是一个对象，但不能是null
+	if(proto == null) throw TypeError();
+	if(Object.create) return Object.create(proto); //如果Object.create()存在,使用它
+	var t = typeof proto; //否则进一步检查
+	if(t!=='object' && t!=='function') throw TypeError();
+	var F = function() {}; // 定义一个空构造函数
+	F.prototype = proto; // 将其原型属性设置为proto
+	return new F(); // 使用F()创建proto的继承对象
+	}*/
+</script>
+</body>
+</html>

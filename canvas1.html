@@ -1,0 +1,56 @@
+<html>
+  <meta charset="utf-8" />
+  <head>
+  <style>
+    body {
+      margin: 0;
+      /*background: #eeeeee;*/
+    }
+    #c1 {
+    /*	width:600px;
+    	height:600px;*/
+    	/*top:0;
+    	left: 0;
+    	bottom: 0;
+    	right: 0;*/
+    	margin: auto;
+    	/*background: #eeeeee;*/
+      /*position: absolute;*/
+    }
+  </style>
+  </head>
+<body>
+
+<div class="centerDiv">
+<canvas id="c1" width="1200" height="800"></canvas>
+</div>
+
+<script src="jquery-1.11.3.js"></script>
+
+<script>
+	window.onload = function(){
+		var oc = document.getElementById("c1");
+		var ocDraw = oc.getContext("2d");
+		
+		/*ocDraw.moveTo(100, 100);
+		ocDraw.arcTo(200, 200, 100, 200, 60);
+		ocDraw.stroke();*/
+		
+		/*ocDraw.moveTo(100, 100);
+		ocDraw.quadraticCurveTo(200, 200, 100, 150);
+		ocDraw.stroke();
+		*/
+		
+/*		ocDraw.moveTo(100, 200);
+		ocDraw.bezierCurveTo(100, 100, 200, 250, 200, 100);//贝塞尔曲线
+		ocDraw.stroke();*/
+		
+		ocDraw.translate(100, 100); //移动初始点坐标， 图形的原点从此开始
+		ocDraw.rotate(30*Math.PI/180); //图形旋转角度
+		ocDraw.scale(2, 2);
+		ocDraw.fillRect(10, 10, 100, 100);
+		
+	}
+</script>
+</body>
+</html>

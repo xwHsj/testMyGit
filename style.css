@@ -1,0 +1,22 @@
+﻿@charset "UTF-8";
+
+
+@font-face {
+	   font-family: hyi4gj;
+	   src:url(hyi4gj.ttf);
+	 }
+@font-face {
+	   font-family: JCuYuan;
+	   src:url(JCuYuan.ttf);
+	 }
+@font-face {
+	   font-family: txls;
+	   src:url(txls.ttf);
+	 }
+@font-face {
+	   font-family: CAI978;
+	   src:url(CAI978.ttf);
+	 }
+
+
+*{ font-family: fontxls;}

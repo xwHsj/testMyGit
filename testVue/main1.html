@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>testvue</title>
+<style>
+.greenDiv{width: 200px;height:30px;background-color: green;}
+
+.noWrap > div{display: inline-block;}
+</style>
+<script>
+	var contextPath = "file:///C:/Users/Administrator/Desktop/tt";
+</script>
+</head>
+<body>
+<div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+  	
+  	<p>{{ messagetwo }}</p>
+</div>
+
+<table>
+	<tr>
+		<td class="noWrap">
+			<div style="display: inline-block;">
+				<span>123123</span>
+			</div>
+			<div style="display: inline-block;">222</div>
+		</td>
+	</tr>
+</table>
+<div id="app-7">
+  <ol>
+    <!-- Now we provide each todo-item with the todo object    -->
+    <!-- it's representing, so that its content can be dynamic -->
+    <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+  </ol>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+
+
+Vue.component('todo-item', {
+  props: ['todo'],
+  /*template: '<li>{{ todo.text }} - {{index}}</li>'  //此处暂时不清楚index为什么获取不到，初步判断是component方法需特殊处理*/
+ template: '<li>{{ todo.text }} -</li>'
+})
+var app7 = new Vue({
+  el: '#app-7',
+  data: {
+    groceryList: [
+      { text: 'Vegetables' },
+      { text: 'Cheese' },
+      { text: 'Whatever else humans are supposed to eat' }
+    ]
+  }
+})
+
+
+</script>
+</body>
+</html>
+ 

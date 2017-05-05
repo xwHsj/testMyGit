@@ -1,0 +1,78 @@
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+      <title></title>
+
+ 
+  </head>
+  <body>
+      <ul>
+          <li>123</li>
+          <li>456</li>
+          <li>789</li>
+      </ul>
+      
+      <a href="#" onclick="javascript:alert(1);" id="tttt">sssssssss</a>
+      
+      
+      <form id="ddd">
+      	<input type="text" id="i1" name="n1" value="111" />
+      	<input type="text" id="i2" name="n2" value="222" />
+      	<input type="text" id="i3" name="n3" value="333" />
+      		
+      		
+      	<input type="checkbox" name="c1" value="c1"/>
+      	<input type="checkbox" name="c1" value="c2"/>
+      	<input type="checkbox" name="c1" value="c3"/>
+      </form>
+      
+      <input type="button" onclick="commit_from();" value="commit">
+      
+      <input type="button" value="解绑" onclick="jiebang();"/>
+      <script src="jquery-1.11.3.js"></script>
+      <script>
+      	function commit_from(){
+      		console.log(111);
+      		
+      		var formData = $('#ddd').serialize();
+      		
+      		console.log(formData);
+      	}
+      	
+      	function jiebang(){
+      		$("#tttt").prop("onclick",null);
+      	}
+      	
+      	
+	 /* window.onload = function(){
+      var aLi = document.getElementsByTagName('li');
+      for (var i=0;i<aLi.length;i++){
+          (function(i){
+              aLi[i].onclick = function(){
+                  alert(i);
+              };
+          })(i);
+      }
+      };*/
+     var arr1 = ['a', 'b'];
+     var arr2 = ['c', 'd'];
+     console.log("arr1 :" + arr1);
+     /*console.log("arr1 + arr2 :" +  $.merge(arr1, arr2));*/
+     /*console.log(arr1.concat(arr2));*/
+     
+     console.log("arr1 :" + arr1);
+     console.log("arr2 :" + arr2);
+      function aaaa(){
+     	//console.log(va + " - " + vb);
+     	console.log(arguments[0] + " - " + arguments[3]);
+     }
+     
+     function a(){
+     	//console.log(va + " - " + vb);
+     	console.log(arguments[0] + " - " + arguments[3]);
+     }
+     
+     a(123, 456, 678);
+  	</script>
+  </body>
+  </html>

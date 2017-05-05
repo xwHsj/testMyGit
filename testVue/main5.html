@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>testvue</title>
+<style>
+.greenDiv{width: 200px;height:30px;background-color: green;}
+
+.noWrap > div{display: inline-block;}
+</style>
+<script>
+	var contextPath = "file:///C:/Users/Administrator/Desktop/tt";
+</script>
+</head>
+<body>
+<div id="example-2">
+  	<ul id="example-2">
+	  <li v-for="(item, index) in items">
+	    {{ parentMessage }} - {{ index }} - {{ item.message }}
+	  </li>
+	</ul>
+	
+	<a v-on:click.once="doThis" href="javascript:void(0);">11111111111111</a>
+	
+	<input v-on:keyup.enter="doThis"  type="text"/>
+</div>
+
+
+<ul id="repeat-object" class="demo">
+  <li v-for="(value, key , index) in object">
+    key:{{ key }} - value:{{value}} - index:{{index}}
+  </li>
+</ul>
+
+<div id="todo-list-example">
+  <input
+    v-model="newTodoText"
+    v-on:keyup.enter="addNewTodo"
+    placeholder="Add a todo"
+  >
+  <ul>
+    <li
+      is="todo-item"
+      v-for="(todo, index) in todos"
+      v-bind:title="todo"
+      v-on:remove="todos.splice(index, 1)"
+    ></li>
+  </ul>
+</div>
+
+<ul id="example-3">
+	<li v-for="n in evenNumbers">{{ n }}</li>
+	
+</ul>
+
+
+<div id="example-4" class="demo">
+	<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+	<label for="jack">Jack</label>
+	<input type="checkbox" id="john" value="John" v-model="checkedNames">
+	<label for="john">John</label>
+	<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+	<label for="mike">Mike</label>
+	<br>
+	<span>Checked names: {{ checkedNames }}</span>
+	
+	 <select v-model="selected">
+	    <option>A</option>
+	    <option>B</option>
+	    <option>C</option>
+	  </select>
+	  <span>Selected: {{ selected }}</span>
+	  <select v-model="selected">
+	  <option v-for="option in options" v-bind:value="option.value">
+	    {{ option.text }}
+	  </option>
+	</select>
+	<span>Selected: {{ selected }}</span>
+	
+	
+	<hr/><br />
+</div>
+
+<div id="example-5" class="demo">
+		
+		 <!--v-bind:true-value="a"  v-bind:false-value="b"       不好使-->
+	<input type="checkbox" id="checkboxqq" name="checkbox05" value="aa" v-model="checkedaaa" >
+	<label for="checkboxqq">{{ checkedaaa }}</label>
+	
+</div>
+
+
+<script src="../lib/vue.js"></script>
+<script>
+var example5 = new Vue({
+  el: '#example-5',
+  data: {
+	checkedaaa:''
+  }
+})
+	
+var example4 = new Vue({
+  el: '#example-4',
+  data: {
+    checkedNames: [],
+    selected: 'A',
+    options: [
+      { text: 'One', value: 'A' },
+      { text: 'Two', value: 'B' },
+      { text: 'Three', value: 'C' }
+    ]
+  }
+})
+
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Foo1' },
+      { message: 'Bar' }
+    ]
+  },
+  methods:{
+  	doThis:function(){
+  		alert(0);
+  	}
+  }
+});
+
+
+new Vue({
+  el: '#repeat-object',
+  data: {
+    object: {
+      FirstName: 'John',
+      LastName: 'Doe',
+      Age: 30
+    }
+  }
+})
+
+
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">X</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      'Do the dishes',
+      'Take out the trash',
+      'Mow the lawn'
+    ]
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push(this.newTodoText)
+      this.newTodoText = ''
+    }
+  }
+})
+
+
+var example3 = new Vue({
+	el: '#example-3',
+	data: {
+	  numbers: [ 1, 2, 3, 4, 5 ]
+	},
+	computed: {
+	  evenNumbers: function () {
+	    return this.numbers.filter(function (number) {
+	      return number % 2 === 0
+	    })
+	  }
+	}
+});
+
+
+
+app.title = '环形图';
+
+
+</script>
+
+</body>
+</html>
+ 
+
+
+
+
+
+

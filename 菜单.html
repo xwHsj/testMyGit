@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<title>菜单</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+
+		<style type="text/css">
+		button{margin:5px;padding:8px 12px;color:#FFFFFF;background-color: #0099FF;}
+		</style>
+	</head>
+	<body style="background-color: #F1D448;">
+		<h1 style="margin-top:30px;text-align: center;">-----满汉全席摇一摇-----</h1>
+		<section style="width:700px;height:500px;background-color: #FFFFFF;margin: 40px auto;border:1ps solid #0099FF;">
+				
+				<div style="text-align: center;font-size:22px;color:#F1D448;height:50px;padding:20px;" value="" id="suijibiao"/></div>
+				
+				<div style="margin: 20px auto;height:300px;padding:0 30px;" id="chishacai">
+					
+					
+				</div>
+			<hr/>
+			<div style="text-align: center;">
+				<button style="" onclick="eatSha('#xc');">摇一波小菜</button>
+				
+				<button style="" onclick="eatSha('#dc');">摇一波大菜</button>
+			</div>
+			
+		</section>
+		
+		<div class="小菜" style="width:160px;height:700px;padding:10px 20px;background-color: #FFFFFF;position: fixed;left:10px; top: 20px;">
+			<h3 style="margin-top:10px;text-align: center;">小菜</h3>
+			<ol style="font-size:18px;" id="xc">
+				<li>西红柿鸡蛋</li>
+				<li>辣椒西葫芦鸡蛋</li>
+				<li>洋葱鸡蛋</li>
+				<li>油焖土豆片</li>
+				<li>尖椒土豆丝</li>
+				<li>香菇青菜</li>
+				<li>尖椒切条</li>
+				<li>清炒西蓝花</li>
+				<li>蒜薹炒肉</li>
+				<li>黄瓜鸡蛋</li>
+				<li>黄瓜胡萝卜炒肉</li>
+				<li>炒豆芽</li>
+				<li>干豆腐辣椒</li>
+				<li>芹菜炒肉</li>
+			</ol>
+		</div>
+		
+		<div class="大菜" style="width:160px;height:700px;padding:10px 20px;background-color: #FFFFFF;position: fixed;right:10px; top: 20px;">
+			<h3 style="margin-top:10px;text-align: center;">大菜</h3>
+			<ol style="font-size:18px;" id="dc">
+				<li>土豆豆角排骨</li>
+				<li>西红柿牛腩</li>
+				<li>炖鱼</li>
+				<li>萝卜丝饼</li>
+				<li>疙瘩汤</li>
+			</ol>
+		</div>
+		<script src="jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+			});
+			
+			function eatSha(hid){
+				var $caidan = [];
+				
+				$(hid).find("li").each(function(){
+					$caidan.push($(this).html());
+				});
+				
+				var finshNum = (parseInt(Math.random().toFixed(2) * 100)) % $caidan.length;
+				var finshcaidai = $caidan[finshNum];
+				var num = 0;
+				
+				var randomFunc = setInterval(function(){
+					if($caidan.length == num) num = 0;
+
+					$("#suijibiao").html($caidan[num]);
+					num ++;
+				}, 40);
+				
+				setTimeout(function(){
+					
+					clearInterval(randomFunc);
+					
+					
+					$("#suijibiao").html(finshcaidai);
+					
+					$("#chishacai").append('<div>' + finshcaidai + '<div>');
+				}, 1500);
+			}
+		</script>
+	</body>
+</html>

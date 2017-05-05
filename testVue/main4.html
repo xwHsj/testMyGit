@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>testvue</title>
+<style>
+.greenDiv{width: 200px;height:30px;background-color: green;}
+
+.noWrap > div{display: inline-block;}
+</style>
+<script>
+	var contextPath = "file:///C:/Users/Administrator/Desktop/tt";
+</script>
+</head>
+<body>
+<div id="app-1">
+  	<div class="static"
+     v-bind:class="{ active: isActive, 'text-danger': hasError }">
+	</div>
+</div>
+
+<div id="app-2">
+	{{sjData}}
+	<div v-if=" sjData > 0.5" v-show="ok">
+	  Sorry
+	</div>
+	<div v-else-if="sjData > 0.2">
+	  Not sorry
+	</div>
+	<div v-else>
+		你脸真黑
+	</div>
+</div>
+
+<div id="app-3">
+	<my-component v-if="loginType === 'username'">
+	  <label>Username</label>
+	  <input placeholder="Enter your username">
+	</my-component>
+	<my-component v-else>
+	  <label>Email</label>
+	  <input placeholder="Enter your email address">
+	</my-component>
+</div>
+
+<div id="app-4">
+	<div v-if="loginType === 'username'">
+	  <label>Username</label>
+	  <input placeholder="not have key" >
+	  <input placeholder="Enter your username" key="h-username">
+	</div>
+	<div v-else>
+	  <label>Email</label>
+	  <input placeholder="not have key" >
+	  <input placeholder="Enter your email address" key="h-email">
+	</div>
+	<input type="button" value="cutUserOrEmail" v-on:click="cutUserOrEmail">
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+var app1 = new Vue({
+  el: '#app-1',
+  data: {
+    isActive: true,
+  	hasError: true
+  }
+});
+
+var app2 = new Vue({
+  el: '#app-2',
+  data: {
+  	sjData:Math.random()
+  }
+});
+
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+  	sjData:Math.random(),
+  	loginType:"username"
+  },
+  components:{
+  	'my-component':{
+  		template:'<div>children template</div>'
+  		}
+  }
+});
+
+var app4 = new Vue({
+  el: '#app-4',
+  data: {
+  	loginType:"username"
+  },
+   methods:{
+    cutUserOrEmail: function (event) {
+    	console.log(this.loginType);
+  		if(this.loginType == "username")
+  			this.loginType = "email"
+  		else
+  			this.loginType = "username"
+  			
+      //alert(event.target.tagName)
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>
+ 

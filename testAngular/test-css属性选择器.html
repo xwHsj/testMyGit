@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>angular</title>
+<style>
+.greenDiv{width: 200px;height:30px;background-color: green;}
+[abc]{width: 200px;height:30px;background-color: green;}
+</style>
+</head>
+<body  ng-app="testScope">
+
+<div abc="111">
+	
+</div>
+
+<br/>
+
+<div abc="111">
+	
+</div>
+<span style="text-decoration:line-through;">删除线效果</span>
+
+
+<!--<script src="../lib/angular.js" ></script>-->
+<script src="../lib/angular.min.js" ></script>
+<!--<script src="../lib/system.js" ></script>
+<script src="../lib/typescript.js" ></script>
+<script src="../lib/angular2.dev.js" ></script>-->
+<script src="../lib/jquery-1.11.3.js"></script>
+
+<script>
+	//alert($("#asdf").html().replace("directive:tag", '<h1>Hello word</h1>'));
+	var testScope = angular.module("testScope", []);
+	
+	testScope.directive("tag", function(){
+		return{
+			restrict: 'EAM',
+			template: '<h1>Hello word</h1>',
+			replace:true
+		}
+	});
+	
+	
+
+	//自定义指令的方法directive  
+    //第一个参数是指令名称  
+    //第二个参数是个function，返回设置指令属性的对象 
+	testScope.directive('userList',function(){  
+                return {  
+                    restrict:'ECA',  
+                    template:'<ul><li ng-repeat="user in users">{{ user.id }} {{ user.name}}</li></ul>',  
+                    replace:true  
+                }  
+            })  
+            .controller('myCtrl',['$scope',function($scope){  
+                $scope.users=[  
+                    {id:12,name:'张三'},  
+                    {id:15,name:'李四'},  
+                    {id:18,name:'王五'}  
+                ]  
+            }]);
+
+</script>
+</body>
+</html>
+；

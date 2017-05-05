@@ -1,0 +1,207 @@
+@charset "UTF-8";
+.modal-open{overflow: hidden !important;}
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    display: none;
+    overflow: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.modal.fade.in {
+    opacity: 1;
+}
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -moz-transition: -moz-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+}
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.modal-dialog {
+    position: relative;
+    z-index: 1050;
+    width: auto;
+    margin: 10px;
+}
+.modal-dialog {
+    width: 460px;
+    margin: 8% auto;
+}
+.modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+    background-clip: padding-box;
+}
+.modal-body{
+    position: relative;
+	padding: 70px 0 50px;
+	text-align: center;
+	color: #666;
+	font-size: 22px;
+}
+.modal-footer {
+    padding: 20px 0;
+    margin-top: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+.modal-footer{
+	border: none;
+	margin-top: 0;
+	padding: 0 0 50px; 
+}
+.modal-backdrop.fade {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+.modal-header {
+    min-height: 16px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-header{
+	padding: 17px;
+	background: #41b0fe;
+	border-radius: 6px 6px 0 0;
+	text-align: center;
+	font-size: 18px;
+	color: #fefefe;
+}
+.modal-header .close {
+    margin-top: -2px;
+}
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    text-indent: -999999px;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.5;
+}
+.logContent{background:none;border:0; width: 310px !important;}
+.text-center{text-align: center;}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    padding: 7px 48px;
+	color: #fff;
+	font-size: 16px;
+}
+.btn_success {
+    color: #fff;
+    background-color: #e62a4b;
+    border-color: #e62a4b;
+    padding:12px 40px;
+    font-size: 20px;
+}
+.btn_close {
+    color: #656d7a;
+    background-color: #e7e7e7;
+    border-color: #e7e7e7;
+    padding:12px 40px;
+    font-size: 20px;
+}
+
+.modal-content,.border-none .modal-content{
+	border: none;
+}
+.modal-header .close{
+	width: 26px;
+	height: 26px;
+	background: url(btn-close.png) no-repeat;
+	opacity: 1;
+	text-indent: -999999px
+}
+.modal-header .close:active{
+	background: url(btn-close-act.png) no-repeat;
+}
+.btn-primary{
+	background: #41b0fe;
+	margin-right: 20px;
+}
+.btn-primary:hover{
+	background: #67c0fe;
+}
+.btn-primary:active{
+	background: #29a5fc;
+}
+.btn-grey{
+	background: #f3d857;
+}
+.btn-grey:hover{
+	background: #f5e079;
+}
+.btn-grey:active{
+	background: #f4d337;
+}
+

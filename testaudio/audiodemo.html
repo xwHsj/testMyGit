@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/base.css"/>
+	</head>
+<body>
+<div style="width:1200px;margin: 50px auto;overflow: hidden;">
+	<!--试听音频开始-->
+	<div class="musicControl">
+		<div class="musicControlLeft fl">
+			<a href="javascript:controlAudio();" class="musicControlBtn"></a>
+		</div>
+		<div class="musicControlRight fl">
+			<span class="disib xendTime" id="audioEndTime">00:35</span>
+			<div class="disib xtimeAre">
+	   			<div class="xtimeBg fl" id="xtimeBg">
+	   				<div class="xtimeBg1" id="xtimeBg1"></div>
+	   			</div>
+			</div>
+			<span class="disib xstartTime" id="audioNowTime">00:35</span>
+		</div>
+		<audio src="" autoplay="autoplay" loop="1" id="listenerLink"></audio>
+	</div>
+</div>
+<script src="../js/jquery-1.11.3/jquery.min.js" ></script>
+<script src="../js/library/FlashWavRecorder/js/twfaudio2.0.js"></script>
+<script>
+
+ 	window.onload = function(){
+		//启动听力
+		/*initAudio("../js/library/FlashWavRecorder/sounds/h1.mp3", document.getElementById("listenerLink"));*/
+	}
+ 	
+ 	
+ 	
+ 	function jjj(_name){
+ 		this.name = _name;
+ 		this.sayMyName = function(name){
+ 			alert(name);
+ 		}
+ 		return this;
+ 	}
+ 	
+ 	var obj3 = jjj('特殊函数');
+ 	console.log(obj3.name);
+ 	var obj4 = jjj('特殊函数111');
+ 	console.log(obj4.name);
+ 	var obj1 = new jjj("第一个");
+ 	var obj2 = new jjj("第二个");
+ 	
+ 	alert(obj1.name);  //  "第二个"
+ 	alert(obj2.name);  //  "第二个"
+	
+</script>
+	</body>
+</html>

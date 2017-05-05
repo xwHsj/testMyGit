@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>查询</title>
+<style>
+.table-box{padding:15px;margin-top:10px;}
+.info-table{width:100%;padding-right:6px;text-align: center;border: 1px solid #EBEBEB;}
+.info-table th{height:48px;color: #333333;font-size: 16px;background-color: #d9efff;white-space:nowrap;}
+.info-table th .refrush{vertical-align: middle;margin-left:6px;}
+.info-table tr{cursor: pointer;}
+.info-table tr:nth-of-type(even){background-color: #ecf7ff;}
+.info-table tr:hover{background-color: #a6d1f0;}
+.info-table td{height:40px;color: #666666;font-size: 14px;word-break: break-word;}
+
+.a-blue-btn{width:82px;height:28px;line-height: 28px;display: inline-block;border: 1px solid #29a5fc;background-color: #41b0fe;color: #fff;text-align: center;font-size:14px;border-radius: 5px;}
+.a-blue-btn:hover{background-color: #67c0fe;}
+.a-blue-btn:active{background-color: #29a5fc;}
+
+
+/**分页**/
+.pages{
+	overflow: hidden;
+	font-size: 14px;
+	margin: 20px 0 0;
+	padding: 0 20px;
+}
+.page-current{
+	float: left;
+	color: #666;
+	margin-top: 6px;
+}
+.page-main{
+	float: right;
+}
+.page-btn{
+	display: inline-block;
+	padding: 6px 9px;
+	margin-left: 14px;
+	border: 1px solid #41b0fe;
+	border-radius: 3px;
+	color: #666;
+}
+.page-btn-hover{
+	display: inline-block;
+	padding: 6px 9px;
+	margin-left: 14px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	color: #fff;
+	background: #67c0fe;
+}
+.page-btn-act{
+	display: inline-block;
+	padding: 6px 9px;
+	margin-left: 14px;
+	border: 1px solid #41b0fe;
+	border-radius: 3px;
+	color: #fff;
+	background: #54b7fd;
+}
+.page-btn-disabled{
+	display: inline-block;
+	padding: 6px 9px;
+	margin-left: 14px;
+	border: 1px solid #d9d9d9;
+	border-radius: 3px;
+	color: #999;
+	cursor: default;
+}
+
+</style>
+</head>
+<body>
+	<div class="filter"  style="text-align:center;padding: 15px;background-color:#abcdef;border-radius: 5px;">
+		<span>时间：</span>
+		<input type="text" placeholder="开始时间"/>
+		<span>至：</span>
+		<input type="text" placeholder="结束时间"/>
+		
+		
+		<span style="margin-left: 50px;">状态：</span>
+		<select style="width: 100px;">
+			<option value="0">0</option>
+			<option value="1">1</option>
+		</select>
+		
+		<a href="javascript:void(0);" class="a-blue-btn" style="margin-left: 10px;float: right;">查询</a>
+	</div>
+	
+	<div style="margin-top: 10px;display: flex;text-align: center;">
+		<div style="flex: 1;">请求数:10</div>
+		<div style="flex: 1;">成功数:10</div>
+		<div style="flex: 1;">失败数:10</div>
+	</div>
+	<div class="table-box">
+		<table class="info-table">
+			<thead>
+				<tr>
+					<th>手机号</th>
+					<th>状态</th>
+					<th>响应信息</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>手机号</td>
+					<td>状态</td>
+					<td>响应信息</td>
+				</tr>
+				<tr>
+					<td>手机号</td>
+					<td>状态</td>
+					<td>响应信息</td>
+				</tr>
+				<tr>
+					<td>手机号</td>
+					<td>状态</td>
+					<td>响应信息</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<div class="pages">
+			<div class="page-current" onclick="ShowAnswer()">
+				当前第<span>[1/3]</span>页，记录总数[36]
+			</div>
+			<div class="page-main">
+				<a class="page-btn-disabled" href="javascript:;">首页</a>
+				<a class="page-btn" href="javascript:;">上一页</a>
+				<a class="page-btn" href="javascript:;">下一页</a>
+				<a class="page-btn" href="javascript:;">尾页</a>
+			</div>
+		</div>
+	</div>
+
+
+<script>
+
+</script>
+</body>
+</html>

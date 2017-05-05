@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="utf-8" />
+<title>Transform旋转</title>
+<style>
+/**{
+font-size:25px;
+color:#fff;
+text-shadow:#000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
+-webkit-text-shadow:#000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
+-moz-text-shadow:#000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
+*filter: Glow(color=#000, strength=1);
+}*/
+html, body, .page {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.content {
+    width: 1024px;
+    height: 768px;
+    line-height: 1.5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 24px;
+    font-family: 'microsoft yahei';
+    overflow: hidden;
+}
+</style>
+</head>
+<body>
+<header class="content">
+
+<hgroup>
+
+<h1> Recall Fan Page </h1>
+
+<h2> Only for people who want the memory of a lifetime. </h2>
+
+</hgroup>
+
+</header>	
+	
+<div>2.2412421</div>
+<div>就立刻搭街坊立刻搭街坊立刻点击</div>
+<select>
+<option>1</option>
+<option>1</option>
+<option>1</option>
+<option>1</option>
+<option>1</option>
+<option>1</option>
+<option>1</option>
+</select>
+
+<form action="" method="get">
+
+<label for="username">姓名:</label>
+
+<input id="username" name="username" type="text" placeholder="4-10个英文字母"
+
+pattern="[A-Za-z]{4,10}" required="required" autofocus />
+
+<button type="submit">提交</button>
+
+</form>
+
+
+<form action="" method="get">
+
+<label for="name">姓名:</label>
+
+<input id="name" name="name" type="text" placeholder="zhangxinxu" required="required" />
+
+<input type="text" placeholder="zhangxinxu" name="qq" contenteditable="true" value="  a"/>
+
+<input type="text" placeholder="zhangxinxu" name="qq" contenteditable="true" value="123"/>
+
+<button type="submit">提交</button>
+<p style="width:200px;height:200px;border:1px solid #7ACFFA"  contenteditable="true"></p>
+</form>
+<script src="jquery-1.11.3.js" ></script>
+<script>
+$('[contenteditable]').each(function() {
+    // 干掉IE http之类地址自动加链接
+    try {
+        document.execCommand("AutoUrlDetect", false, false);
+    } catch (e) {}
+    
+    $(this).on('paste', function(e) {
+        e.preventDefault();
+        var text = null;
+    
+        if(window.clipboardData && clipboardData.setData) {
+            // IE
+            text = window.clipboardData.getData('text');
+        } else {
+            text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('在这里输入文本');
+        }
+        if (document.body.createTextRange) {    
+            if (document.selection) {
+                textRange = document.selection.createRange();
+            } else if (window.getSelection) {
+                sel = window.getSelection();
+                var range = sel.getRangeAt(0);
+                
+                // 创建临时元素，使得TextRange可以移动到正确的位置
+                var tempEl = document.createElement("span");
+                tempEl.innerHTML = "&#FEFF;";
+                range.deleteContents();
+                range.insertNode(tempEl);
+                textRange = document.body.createTextRange();
+                textRange.moveToElementText(tempEl);
+                tempEl.parentNode.removeChild(tempEl);
+            }
+            textRange.text = text;
+            textRange.collapse(false);
+            textRange.select();
+        } else {
+            // Chrome之类浏览器
+            document.execCommand("insertText", false, text);
+        }
+    });
+    // 去除Crtl+b/Ctrl+i/Ctrl+u等快捷键
+    $(this).on('keydown', function(e) {
+        // e.metaKey for mac
+        if (e.ctrlKey || e.metaKey) {
+            switch(e.keyCode){
+                case 66: //ctrl+B or ctrl+b
+                case 98: 
+                case 73: //ctrl+I or ctrl+i
+                case 105: 
+                case 85: //ctrl+U or ctrl+u
+                case 117: {
+                    e.preventDefault();    
+                    break;
+                }
+            }
+        }    
+    });
+});
+var arr = [1,2,3];
+arr.reduce(function(pre,cur,index,arr){
+	//debugger;return pre+cur
+});
+
+$(function() {
+	$.ajax({
+		type:"GET",
+		url:"list.json",
+		dataType:"json",
+		success:function(jsonStr){			
+			//alert("success");
+			//console.log(jsonStr);
+			//console.log(jsonStr["name"]);
+		},
+		error:function(){
+			alert("error");
+		},
+		finally:function(){
+			console.log("---ceshi是否能进来");
+		}
+	});
+});
+
+//alert(window.location.hash);
+  var o1 = {};
+        var o2 =new Object();
+        
+        function f1(){}
+        var f2 = function(){}
+        var f3 = new Function('str','console.log(str)');
+    
+        f3('aabb');   // aabb
+       /* console.log('typeof Object:'+typeof Object);            //function
+        console.log('typeof Function:'+typeof Function);        //function
+        console.log('typeof o1:'+typeof o1);   //object
+        console.log('typeof o2:'+typeof o2);   //object
+        console.log('typeof f1:'+typeof f1);   //function
+        console.log('typeof f2:'+typeof f2);   //function
+        console.log('typeof f3:'+typeof f3);   //function*/
+</script>
+</body>
+</html>

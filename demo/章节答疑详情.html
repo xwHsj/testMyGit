@@ -1,0 +1,177 @@
+<html>
+  <head>
+  	<meta charset="utf-8" />
+  	<title>demo</title>
+	  <style>
+	
+	  </style>
+  </head>
+<body>
+<div class="bread" style="padding:20px 0">
+	<a href="javascript:void(0);">首页</a>
+	>
+	任务答疑
+	>
+	任务答疑详情
+</div>
+
+<div class="" style="display: flex;border-bottom: 1px solid #999999;padding-bottom: 5px;">
+	<div style="flex: 1;">
+		<b>任务:</b>
+		<select>
+			<option>------请选择-----</option>
+			<option>------1-----</option>
+			<option>------2-----</option>
+		</select>
+		<select>
+			<option>------请选择-----</option>
+			<option>------1-----</option>
+			<option>------2-----</option>
+		</select>
+		<select>
+			<option>------请选择-----</option>
+			<option>------1-----</option>
+			<option>------2-----</option>
+		</select>
+	</div>
+	<div style="flex: 1;">
+		<b>筛选:</b>
+		<input type="checkbox" id="sttw">
+		<label for="sttw">试题提问</label>
+		<input type="checkbox" id="zytw">
+		<label for="zytw">资源提问</label>
+	</div>
+	<div style="flex: 1;">
+		<b>排序:</b>
+		<a href="javascript:void(0);">提问时间</a>
+		<a href="javascript:void(0);">提问数量</a>
+	</div>
+</div>	
+
+<h4><span style="font-size: 14px;color: #5E5E5E;">12提问(含31追问) 5回复</span> 下图为北半球的一只北极熊的活动踪迹...  <a href="javascript:void(0);" onclick="showStxq(this);" style="float: right;">试题详情</a></h4>
+<div class="stxq" style="min-height:50px;border:1px solid deepskyblue;background-color: #EEEEEE;display: none;">
+	<div class="stxq-content">下图为北半球的一只北极熊的活动踪迹----下图为北半球的一只北极熊的活动踪迹----下图为北半球的一只北极熊的活动踪迹---下图为北半球的一只北极熊的活动踪迹</div>
+	<a href="javascript:void(0);" onclick="closeStxq(this);" style="float: right;">收起</a>
+</div>
+<div class="hfqy"> <!--回复区域-->
+	<!--第一个回复-->
+	<h1>第一个回复 --- 这个可以删</h1>
+	<div style="border:1px solid deepskyblue;background-color: #EEEEEE;margin-top:10px;" class="第一个回复">
+		<div>  <!--提问头部-->
+			<span>测试员 ST000000</span><span style="margin-left:20px;">2017-2-23 11:38:54</span>
+			<a href="javascript:void(0);" class="sqBtn" onclick="isShowStnr(this);" style="float:right;margin-left:10px;">展开</a>
+			<a href="javascript:void(0);" style="float: right;">优秀提问</a>
+		</div>
+
+		<div style="margin:10px 0;display:none;"><!--提问内容-->
+			<div style="min-height: 50px;border:1px solid blue;"><!--内容-->
+				地形就是很重要的， 没有地形就没有视野，没有视野就容易被gank<br/>
+				地形就是很重要的， 没有地形就没有视野，没有视野就容易被gank
+			</div>
+			
+			<div style="overflow: hidden;margin-bottom:10px;">  <!--提问内容底部-->
+				<a href="javascript:void(0);" onclick="showSthf(this);" style="float:right;margin-left:10px;">回复</a>
+				<a href="javascript:void(0);" onclick="deleteSthf();" style="float:right;">删除</a>
+			</div>
+		</div>
+	</div>
+	
+	<div style="margin-top:5px;display: none; border:1px solid #008000;"> <!--回复-->
+		<div style="margin:5px;">
+			<input type="file" value="" class="input-file"/>
+			<input type="button" value="录音" />
+		</div>
+		<textarea style="width: 100%; height:150px;"></textarea>
+		
+		<div style="text-align: right;margin:5px;">
+			<a href="javascript:void(0);" onclick="clearHf(this);" style="">取消</a>
+			<a href="javascript:void(0);" style="">回复</a>
+		</div>
+	</div>
+
+	
+	
+	<!--第二个回复-->
+	<h1>第二个回复 --- 这个可以删</h1>
+	<div style="border:1px solid deepskyblue;background-color: #EEEEEE;margin-top:10px;" class="第二个回复">
+		<div>  <!--提问头部-->
+			<span>测试员 ST000000</span><span style="margin-left: 20px;">2017-2-23 11:38:54</span>
+			<a href="javascript:void(0);" class="sqBtn" onclick="isShowStnr(this);" style="float: right;margin-left:10px;">展开</a>
+			<a href="javascript:void(0);" style="float: right;">优秀提问</a>
+		</div>
+		
+		<div style="margin:10px 0;display: none;"><!--提问内容-->
+			<div style="min-height: 50px;border:1px solid blue;"><!--内容-->
+				地形就是很重要的， 没有地形就没有视野，没有视野就容易被gank<br/>
+				地形就是很重要的， 没有地形就没有视野，没有视野就容易被gank
+			</div>
+			
+			<div style="overflow: hidden;margin-bottom: 10px;"><!--提问底部-->
+				<a href="javascript:void(0);" onclick="showSthf(this);" style="float: right;margin-left:10px;">回复</a>
+				<a href="javascript:void(0);" onclick="deleteSthf();" style="float:right;">删除</a>
+			</div>
+		</div>
+	</div>
+	
+	<div style="margin-top:5px;display: none; border:1px solid #008000;" class="hfbox"> <!--回复-->
+		<div style="margin:5px;">
+			<input type="file" value="" class="input-file"/>
+			<input type="button" value="录音" />
+		</div>
+		<textarea style="width: 100%; height:150px;"></textarea>
+		
+		<div style="text-align: right;margin:5px;">
+			<a href="javascript:void(0);" onclick="clearHf(this);" style="">取消</a>
+			<a href="javascript:void(0);" style="">回复</a>
+		</div>
+	</div>
+	
+</div>  <!--class="hfqy"  回复区域 end-->
+
+<div style="text-align: center;margin-top:10px;"><a href="javascript:void(0);">--------加载更多--------</a></div>
+
+<script src="jquery-1.11.3.js"></script>
+<script>
+//展示试题详情
+function showStxq(eleObj){
+	$(eleObj).parent().next().show();
+}
+//关闭试题详情
+function closeStxq(eleObj){
+	$(eleObj).parent().hide();
+}
+//展示试题内容
+function isShowStnr(eleObj){
+	if($(eleObj).parent().next().is(":hidden")){
+		$(eleObj).html("收起");
+		$(eleObj).parent().next().show();
+	}else{
+		$(eleObj).html("展开");
+		$(eleObj).parent().next().hide();
+		$(eleObj).parent().parent().next().hide();
+	}
+}
+
+//删除试题回复
+function deleteSthf(){
+	if(confirm("确定删除么")){
+		alert("已删除");
+	}else{
+		alert("已取消");
+	}
+}
+
+//展示试题回复
+function showSthf(eleObj){
+	$(eleObj).parent().parent().parent().next().show();
+}
+
+//清除回复内容并且隐藏。
+function clearHf(eleObj){
+	$(eleObj).parent().parent().find(".input-file").val("");//清除上传文件
+	$(eleObj).parent().prev().val(""); //清除输出框
+	$(eleObj).parent().parent().hide();
+}
+</script>
+</body>
+</html>
